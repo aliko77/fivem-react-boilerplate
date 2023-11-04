@@ -1,6 +1,6 @@
 # Script
 
-- Hello, first of all thank you for purchasing our plugin :)
+- Hello <3
 
 ## FAQ
 
