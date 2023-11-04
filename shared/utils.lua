@@ -44,6 +44,17 @@ Utils.debugPrint = function(tbl, indent)
     print('\x1b[4m\x1b[36m[ END DEBUG ]\x1b[0m')
 end
 
+--- Get framework used by the server
+--- @return object
+Utils.GetFramework = function()
+    if Config.FrameWork == "qb" then
+        return exports["qb-core"]:GetCoreObject()
+    elseif Config.FrameWork == "esx" then
+        return exports["es_extended"]:getSharedObject()
+    end
+end
+
+
 ---@param source number | nil Player server id or nil, if value is nil, Trigger client event.
 ---@param title string
 ---@param type "error" | "success" | "info" | any
@@ -54,16 +65,5 @@ Utils.CustomNotify = function(source, title, type, text, duration, icon)
         -- TriggerClientEvent("EventName", source, ?, ?, ?, ?)
     else                          -- Client Notify
         -- exports["ExportName"]:Alert(?, ?, ?, ?)
-    end
-end
-
---
---- Get framework used by the server
---- @return object
-Utils.GetFramework = function()
-    if Config.FrameWork == "qb" then
-        return exports["qb-core"]:GetCoreObject()
-    elseif Config.FrameWork == "esx" then
-        return exports["es_extended"]:getSharedObject()
     end
 end

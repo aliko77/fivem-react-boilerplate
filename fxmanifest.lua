@@ -40,6 +40,7 @@ files {
 escrow_ignore {
     "locales/**/*",
     "shared/config.lua",
+    "shared/utils.lua",
     "client/variables.lua",
     "client/utils.lua",
     "server/variables.lua",
