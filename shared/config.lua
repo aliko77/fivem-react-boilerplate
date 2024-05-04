@@ -1,14 +1,9 @@
--- Configuration settings for the GPS system.
+--[[ Configuration settings ]]
 Config            = {}
-
--- Debug print setting for displaying debug messages.
-Config.DebugPrint = true
-
--- Locale setting for language localization.
+---Locale setting for language localization.
 Config.Locale     = "en"
+---@type "ox_target" | "qb_target" | "custom" -- System to be used
+Config.TargetType = "ox_target"
 
--- ("qb" | "esx") -- > The latest version is always used.
-Config.FrameWork  = "qb"
-
--- ("esx_notify" | "qb_notify" | "custom_notify") -- > System to be used
-Config.NotifyType = "esx_notify"
+--[[ Commands ]]
+Config.Commands = {}

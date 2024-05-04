@@ -1,15 +1,6 @@
-import React, { createContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useMemo, useState } from "react";
 import { useNuiEvent } from "../hooks/useNuiEvent";
-import { fetchNui } from "../utils/fetchNui";
-import { isEnvBrowser } from "../utils/misc";
-import { debugData } from "../utils/debugData";
-
-debugData([
-  {
-    action: "setVisible",
-    data: true,
-  },
-]);
+import classNames from "classnames";
 
 export interface VisibilityProviderValue {
   setVisible: (visible: boolean) => void;
@@ -25,21 +16,7 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [visible, setVisible] = useState(false);
 
-  useNuiEvent<boolean>("setVisible", setVisible);
-
-  useEffect(() => {
-    if (!visible) return;
-
-    const keyHandler = (e: KeyboardEvent) => {
-      if (["Escape"].includes(e.code)) {
-        if (!isEnvBrowser()) {
-          fetchNui("hideFrame");
-        }
-      }
-    };
-    window.addEventListener("keydown", keyHandler);
-    return () => window.removeEventListener("keydown", keyHandler);
-  }, [visible]);
+  useNuiEvent<boolean>("ui:setVisible", setVisible);
 
   const value = useMemo(() => {
     return {
@@ -52,7 +29,7 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
     <VisibilityCtx.Provider value={value}>
       <main
         style={{ visibility: visible ? "visible" : "hidden" }}
-        className="content"
+        className={classNames("w-full h-screen")}
       >
         {children}
       </main>

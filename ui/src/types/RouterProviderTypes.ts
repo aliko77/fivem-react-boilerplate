@@ -1,4 +1,4 @@
-export type PageTypes = "home";
+export type PageTypes = string;
 
 export type RouterProviderProps = {
   router: PageTypes;

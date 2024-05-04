@@ -1,51 +1,50 @@
 fx_version "cerulean"
-game "gta5"
-author "aliko. <Discord: aliko.>"
-description "Fivem Script: -- ?"
-version "1.0.0"
 lua54 "yes"
+game "gta5"
+name "--?"
+author "0Resmon | aliko."
+version "1.0.0"
+description "Fivem, --? script | 0resmon | aliko.<Discord>"
 
 shared_scripts {
-    "shared/**/*"
+	"@ox_lib/init.lua",
+	"shared/**/*"
 }
 
 client_scripts {
-    "client/utils.lua",
-    "client/variables.lua",
-    "client/functions.lua",
-    "client/events.lua",
-    "client/nui.lua",
-    "client/threads.lua"
+	"client/utils.lua",
+	"client/functions.lua",
+	"client/events.lua",
+	"client/nui.lua",
+	"client/threads.lua",
+	"modules/bridge/**/client.lua",
 }
 
 server_scripts {
-    "@oxmysql/lib/MySQL.lua",
-    "server/utils.lua",
-    "server/variables.lua",
-    "server/functions.lua",
-    "server/callbacks.lua",
-    "server/commands.lua",
-    "server/events.lua",
-    "server/threads.lua"
+	"@oxmysql/lib/MySQL.lua",
+	"server/utils.lua",
+	"server/functions.lua",
+	"server/events.lua",
+	"server/commands.lua",
+	"modules/bridge/**/server.lua",
 }
 
 ui_page "ui/build/index.html"
 
 files {
-    "locales/**/*",
-    "ui/build/index.html",
-    "ui/build/**/*"
+	"locales/**/*",
+	"ui/build/index.html",
+	"ui/build/**/*",
+}
+
+dependencies {
+	"0r_lib"
 }
 
 escrow_ignore {
-    "locales/**/*",
-    "shared/config.lua",
-    "shared/utils.lua",
-    "client/variables.lua",
-    "client/utils.lua",
-    "server/variables.lua",
-    "server/utils.lua",
-    "server/commands.lua",
-    "ui/build/**/*",
-    "ui/public/**/*"
+	"client/**/*",
+	"locales/**/*",
+	"server/**/*",
+	"shared/**/*",
+	"modules/**/*"
 }

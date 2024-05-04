@@ -1,1 +1,0 @@
-Koci = Utils.GetFramework()

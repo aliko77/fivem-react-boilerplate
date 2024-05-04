@@ -1,15 +1,21 @@
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
-import "./index.css";
 import { VisibilityProvider } from "./providers/VisibilityProvider";
-import { RouterProvider } from "./providers/RouterProvider";
+import RouterProvider from "./providers/RouterProvider";
+import LocaleProvider from "./providers/LocaleProvider";
+import { DataProvider } from "./providers/DataProvider";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <>
     <VisibilityProvider>
-      <RouterProvider>
-        <App />
-      </RouterProvider>
+      <LocaleProvider>
+        <DataProvider>
+          <RouterProvider>
+            <App />
+          </RouterProvider>
+        </DataProvider>
+      </LocaleProvider>
     </VisibilityProvider>
   </>
 );

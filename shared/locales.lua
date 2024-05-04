@@ -35,8 +35,20 @@ locales = loadLocale(Config.Locale or "en")
 ---@param key string The key to look up in the locale data.
 ---@return string value The formatted localized text.
 function _t(key, ...)
-    if locales[key] then
-        return locales[key]:format(...)
+    local keys = {}
+    for k in string.gmatch(key, "[^.]+") do
+        table.insert(keys, k)
     end
-    return key
+    local currentTable = locales
+    for _, k in ipairs(keys) do
+        currentTable = currentTable[k]
+        if not currentTable then
+            return key
+        end
+    end
+    if type(currentTable) == "string" then
+        return currentTable:format(...)
+    else
+        return key
+    end
 end

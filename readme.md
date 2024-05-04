@@ -1,9 +1,11 @@
-# Script
+## Koci---? Script | 0r---? | 0Resmon | aliko.
 
-- Hello <3
+### Installation
 
-## FAQ
+- https://docs.0resmon.org/0resmon/0r-resources/0r---?/installation
 
--
+  - Hello, thank you for purchasing our plugin.
 
-# Discord: aliko.
+    ### Creator
+
+- Discord: 0Resmon | aliko.

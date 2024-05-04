@@ -1,1 +1,8 @@
-return {}
+return {
+    game = {
+        -- #
+    },
+    ui = {
+        -- #
+    },
+}
